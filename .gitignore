@@ -1,5 +1,7 @@
 *.pyc
 *.key
-*DS_store
+*DS_Store
 *.log
 *.log.gz
+dhcplist*
+nohup*
