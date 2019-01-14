@@ -1,3 +1,5 @@
 *.pyc
 *.key
 *DS_store
+*.log
+*.log.gz

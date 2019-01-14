@@ -3,6 +3,7 @@ from RF24Network import *
 from RF24Mesh import *
 
 import struct
+import logging
 
 class MeshMaster:
 	MESH_MASTER_CE_PIN = 17
@@ -10,6 +11,7 @@ class MeshMaster:
 	MESH_MASTER_NODE_ID = 0
 
 	def __init__(self):
+		self.logger = logging.getLogger(__name__)
 		self.radio = RF24(MeshMaster.MESH_MASTER_CE_PIN, MeshMaster.MESH_MASTER_CS_PIN)
 		self.network = RF24Network(self.radio)
 		self.mesh = RF24Mesh(self.radio, self.network)
@@ -17,6 +19,8 @@ class MeshMaster:
 		self.mesh.begin()
 		self.radio.setPALevel(RF24_PA_MAX)
 		self.radio.printDetails()
+
+		self.logger.info('Initializing mesh master')
 
 	def send(self, data, id):
 		# while not self.mesh.write(data, id, 1):
