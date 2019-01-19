@@ -113,7 +113,7 @@ def main():
 
 	while 1:
 		garden_master.update()
-                time.sleep(1)
+                time.sleep(0.2)
 
 if __name__ == '__main__':
 	main()

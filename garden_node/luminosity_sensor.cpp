@@ -1,4 +1,4 @@
-#include "relay.h"
+#include "luminosity_sensor.h"
 
 LuminositySensor::LuminositySensor(uint8_t sensor_power_port, uint8_t sensor_data_port)
 {

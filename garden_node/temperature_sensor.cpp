@@ -1,4 +1,4 @@
-#include "relay.h"
+#include "temperature_sensor.h"
 
 TemperatureSensor::TemperatureSensor(uint8_t sensor_port)
 {

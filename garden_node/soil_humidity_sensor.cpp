@@ -1,4 +1,4 @@
-#include "relay.h"
+#include "soil_humidity_sensor.h"
 
 SoilHumiditySensor::SoilHumiditySensor(uint8_t sensor_power_port, uint8_t sensor_data_port)
 {

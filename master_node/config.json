@@ -1,7 +1,7 @@
 {
-	"humidity_period": 30,
-	"temperature_period": 30,
-	"luminosity_period": 30,
+	"humidity_period": 60,
+	"temperature_period": 60,
+	"luminosity_period": 60,
 	"pump_times": [
 		"08:05",
 		"16:05"

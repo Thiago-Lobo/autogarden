@@ -6,6 +6,7 @@
 #include "RF24Network.h"
 #include "RF24Mesh.h"
 #include "rf_message.h"
+#include "arduino_wrapper.h"
 
 #define AG_XCEIVER_NODE_ID 1
 #define AG_XCEIVER_CE_PIN 9

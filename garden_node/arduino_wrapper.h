@@ -1,4 +1,7 @@
-#pragma once
+#ifndef ARDUINO_WRAPPER_H
+#define ARDUINO_WRAPPER_H
+
+#include "Arduino.h"
 
 #define DEFAULT_SERIAL Serial
 
@@ -24,17 +27,6 @@
 #define ag_output_mode(x, y) (digitalWrite((x), (y)))
 #define ag_digital_read(x) (digitalRead(x))
 
-void ag_float_to_bytes(float value, byte bytes_array[]) {
-    union {
-        float float_variable;
-        byte temp_array[4];
-    } u;
-
-    u.float_variable = value;
-
-    memcpy(bytes_array, u.temp_array, 4);
-}
-
 #define AG_PI 		3.14159265358979323f
 #define AG_TAU 		(2.0f * AG_PI)
 #define AG_EULER 	2.71828182845904523f
@@ -50,3 +42,4 @@ void ag_float_to_bytes(float value, byte bytes_array[]) {
 #define AG_MAX(a, b) ((a) > (b) ? (a) : (b))
 #define AG_ABS(x) ((x) >= 0.0f ? (x) : -(x))
 #define AG_SQRT(x) (sqrt(x))
+#endif
