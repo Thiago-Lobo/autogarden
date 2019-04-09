@@ -12,6 +12,8 @@ from telegram import ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMa
 import logging
 import requests
 
+CURRENT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
+
 GARDEN_NODE_URL = 'http://esp32/'
 
 GET_TEMPERATURE_ENDPOINT = 'get_temperature'
@@ -47,7 +49,7 @@ def string_to_timestamp(string):
 
 def initialize_logging():
 	logging.basicConfig(
-		filename='garden_bot.log',
+		filename='{0}/garden_bot.log'.format(CURRENT_DIRECTORY),
 		level=logging.INFO,
 		format='%(asctime)s.%(msecs)03d [%(name)s] %(levelname)-7s %(funcName)s - %(message)s', 
 		datefmt='%Y-%m-%d %H:%M:%S'
@@ -202,7 +204,7 @@ def test(bot, update, job_queue, args):
 ####################################################
 
 def initialize_bot():
-	k = open(API_KEY_FILE, 'r')
+	k = open('{0}/{1}'.format(CURRENT_DIRECTORY, API_KEY_FILE), 'r')
 
 	updater = Updater(token = k.readlines()[0].strip())
 	dispatcher = updater.dispatcher

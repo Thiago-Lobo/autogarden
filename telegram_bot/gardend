@@ -1,0 +1,42 @@
+#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides:		gardend
+# Required-Start:	$remote_fs $syslog
+# Required-Stop:	$remote_fs $syslog
+# Default-Start:	2 3 4 5
+# Default-Stop:		0 1 6
+# Short-Description:	My custom partition mounter script
+### END INIT INFO
+
+DIR=/home/thiagolobo/autogarden/telegram_bot
+DAEMON=$DIR/telegram_bot.py
+DAEMON_NAME=gardend
+DAEMON_OPTS=""
+DAEMON_USER=root
+PIDFILE=/var/run/$DAEMON_NAME.pid
+
+do_start () {
+	python $DAEMON $DAEMON_OPTS &
+	echo $! > $PIDFILE
+}
+	    
+do_stop () {
+	PID="$(cat $PIDFILE)"
+	kill -9 $PID
+}
+
+case "$1" in
+  start)
+  	do_start
+	;;
+  stop)
+  	do_stop
+	;;
+  *)
+	echo "Usage: /etc/init.d/$DAEMON_NAME {start|stop}"
+	exit 1
+	;;
+esac
+exit 0
+

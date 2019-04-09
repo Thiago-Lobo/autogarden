@@ -6,3 +6,4 @@
 dhcplist*
 nohup*
 build-*
+*.pid
